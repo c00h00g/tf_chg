@@ -3,7 +3,6 @@ import numpy as np
 
 a = np.array([[1, 2, 3], [4, 5, 6]])  
 
-
 with tf.Session() as sess:
     #按列求和
     #[5 7 9]
@@ -13,3 +12,6 @@ with tf.Session() as sess:
     #[6, 15]
     print(sess.run(tf.reduce_sum(a, 1)))
 
+    #全部求和
+    #21
+    print(sess.run(tf.reduce_sum(a)))
