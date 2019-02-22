@@ -59,4 +59,31 @@ with tf.Session() as sess:
     print('precision is: ', precision[0])
 
 
+# output
+#train loss is :  1.184061504710805
+#train loss is :  0.6653705839135435
+#train loss is :  0.5528402723507447
+#train loss is :  0.4986796088652179
+#train loss is :  0.4655174614082682
+#train loss is :  0.4425995736230505
+#train loss is :  0.4254873306371956
+#train loss is :  0.4122291127930988
+#train loss is :  0.4014037578214298
+#train loss is :  0.39242061219432145
+#train loss is :  0.38479704469442355
+#train loss is :  0.37818974565375985
+#train loss is :  0.372366532575
+#train loss is :  0.3672872203046624
+#train loss is :  0.36274600291794
+#train loss is :  0.35859682429920553
+#train loss is :  0.35486768711696964
+#train loss is :  0.35143563002347966
+#train loss is :  0.34829720069061604
+#train loss is :  0.34544178274544807
+#train loss is :  0.34276210625063297
+#train loss is :  0.3402475786750966
+#train loss is :  0.33794351339340195
+#train loss is :  0.33574824986132673
+#train loss is :  0.33370095301758157
+#precision is:  0.9138
 
