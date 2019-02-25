@@ -1,23 +1,20 @@
 import tensorflow as tf
+import os
+import numpy as np
+os.environ["CUDA_VISIBLE_DEVICES"] = "3"
 
-classes = 3
 labels = tf.constant([1, 2, 3])
-labels_2 = tf.constant([1, 2, 0])
 
-output = tf.one_hot(labels, classes)
-output_2 = tf.one_hot(labels_2, classes)
+one_hot_labels = tf.one_hot(labels, depth=5, dtype=tf.float32)
+one_hot_labels_six = tf.one_hot(labels, depth=6, dtype=tf.float32)
 
 with tf.Session() as sess:
-    sess.run(tf.global_variables_initializer())
-    print(sess.run(output))
-    print(sess.run(output_2))
+    #[[0. 1. 0. 0. 0.]
+    # [0. 0. 1. 0. 0.]
+    # [0. 0. 0. 1. 0.]]
+    print(sess.run(one_hot_labels))
 
-
-#输出结果，可以看出编码最大值是classes - 1, 超过的部分无法编码出来
-[[0. 1. 0.]
- [0. 0. 1.]
- [0. 0. 0.]]
-
-[[0. 1. 0.]
- [0. 0. 1.]
- [1. 0. 0.]]
+    #[[0. 1. 0. 0. 0. 0.]
+    # [0. 0. 1. 0. 0. 0.]
+    # [0. 0. 0. 1. 0. 0.]]
+    print(sess.run(one_hot_labels_six))
