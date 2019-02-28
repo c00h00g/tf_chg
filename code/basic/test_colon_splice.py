@@ -15,6 +15,7 @@ print(a.shape)
 
 b = a[:, 0:1, :]
 c = a[:, :, 0:2]
+d = tf.reshape(a, [-1])
 
 with tf.Session() as sess:
     #[[[ 1  2  3]]
@@ -28,3 +29,6 @@ with tf.Session() as sess:
     #  [[13 14]
     #   [16 17]]]
     print(sess.run(c))
+
+    #[ 1  2  3  4  5  6  7  8  9 10 11 12 13 14 15 16 17 18]
+    print(sess.run(d))
