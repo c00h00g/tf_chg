@@ -7,7 +7,9 @@ import numpy as np
 
 os.environ["CUDA_VISIBLE_DEVICES"] = "3"
 
+# (2, 3)
 a = tf.constant([[1, 2, 3], [4, 5, 6]])
+# (2, 3)
 b = tf.constant([[7, 8, 9], [10, 11, 12]])
 
 #axis=0，表示在第一维连接
@@ -22,6 +24,7 @@ with tf.Session() as sess:
     # [10 11 12]]
     print(sess.run(concat_0))
 
+    # (2, 6)
     #[[ 1  2  3  7  8  9]
     # [ 4  5  6 10 11 12]]
     print(sess.run(concat_1))
