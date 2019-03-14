@@ -12,10 +12,13 @@ ll = []
 ll.append(a)
 ll.append(b)
 
-#[[3. 4. 5. 6.]]
 c = tf.reduce_mean(ll, axis = 0)
 d = tf.reduce_mean(ll, axis = 1)
 
+#[[ 3.  4.  5.  6.]
+# [ 9. 10. 11. 12.]]
+# [[ 5.  6.  7.  8.]
+#  [ 7.  8.  9. 10.]]
 with tf.Session() as sess:
     print(sess.run(c))
     print(sess.run(d))
