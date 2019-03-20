@@ -5,15 +5,19 @@ import os
 os.environ["CUDA_VISIBLE_DEVICES"] = "3"
 
 
-a = [1, 2, 3]
-b = tf.convert_to_tensor(a, dtype = tf.float32)
-c = 5
+a = tf.constant([1, 2, 3])
+a = tf.expand_dims(a, 1)
+#(3, 1)
+print(a.shape)
 
-print(a)
-print(b)
+b = tf.constant([[1, 1], [2, 2], [3, 3]])
+#(3, 2)
+print(b.shape)
 
 with tf.Session() as sess:
-    #[1. 4. 9.]
+    #[[1 1]
+    # [4 4]
+    # [9 9]]
     print(sess.run(a * b))
-    #[ 5. 10. 15.]
-    print(sess.run(c * b))
+
+
