@@ -16,13 +16,13 @@ with tf.Session() as sess:
     # [ True  True  True False]
     # [ True  True  True  True]]
     # seq_mask shape是 (4, 4)
-    # 第一个1表示mask从1开始的所有
-    # 第二个2表示mask从2开始的所有
-    # 第三个3表示mask从3开始的所有
-    # 第四个4表示mask从4开始的所有，但是已经没有了
+    # 第一个1表示mask第一个
+    # 第二个2表示mask前两个
+    # 第三个3表示mask前三个
+    # 第四个4表示mask全部
     print(sess.run(seq_mask))
 
-    # 一个都不mask
+    # 全部mask
     # [ True  True  True  True  True  True  True  True  True  True]
     print(sess.run(a))
 
