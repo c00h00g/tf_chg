@@ -1,4 +1,4 @@
-# -*- coding:utf-8 -*-
+# -*- co#ding:utf-8 -*-
 
 import sys
 import os
@@ -17,6 +17,13 @@ concat_0 = tf.concat([a, b], axis = 0)
 
 concat_1 = tf.concat([a, b], axis = 1)
 
+#[1 2 3 4]
+c = tf.concat([[1, 2], [3, 4]], axis = 0)
+
+# Shape must be at least rank 2 but is rank 1 for 'concat_3'
+# 会报错, 因为是按照里面 [1, 2] 的维度来计算的, 里面的维度是(2,), 并没有第二个维度
+# d = tf.concat([[1, 2], [3, 4]], axis = 1)
+
 with tf.Session() as sess:
     #[[ 1  2  3]
     # [ 4  5  6]
@@ -28,3 +35,5 @@ with tf.Session() as sess:
     #[[ 1  2  3  7  8  9]
     # [ 4  5  6 10 11 12]]
     print(sess.run(concat_1))
+
+    print(sess.run(c))
