@@ -1,4 +1,4 @@
-# -*- co#ding:utf-8 -*-
+# -*- coding:utf-8 -*-
 
 import sys
 import os
@@ -13,9 +13,13 @@ a = tf.constant([[1, 2, 3], [4, 5, 6]])
 b = tf.constant([[7, 8, 9], [10, 11, 12]])
 
 #axis=0，表示在第一维连接
+#(4, 3) --> (2 * 2, 3)
 concat_0 = tf.concat([a, b], axis = 0)
+print(concat_0.shape)
 
+#(2, 6) --> (2, 3 * 2)
 concat_1 = tf.concat([a, b], axis = 1)
+print(concat_1.shape)
 
 #[1 2 3 4]
 c = tf.concat([[1, 2], [3, 4]], axis = 0)
