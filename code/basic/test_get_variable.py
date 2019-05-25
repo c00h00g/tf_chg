@@ -19,6 +19,9 @@ def test_get_variable(sess):
 #scope/chg:0
 #equal
 def use_variable_scope(sess):
+    """
+    scope相当于命名空间的意思
+    """
     with tf.variable_scope("scope"):
         a = tf.get_variable(name = 'chg', shape = [2, 3], initializer = tf.ones_initializer())
         print a.name
