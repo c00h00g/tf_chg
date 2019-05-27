@@ -28,6 +28,7 @@ print c
 # [70]
 # [80]
 # [90]]
+# [-1,. 1] 表示reshape成两维的
 d = tf.reshape(a * seq_len, [-1, 1])
 
 with tf.Session() as sess:
