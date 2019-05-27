@@ -1,4 +1,5 @@
 # -*- coding:utf-8 -*-
+# 功能和python的功能一致
 
 import tensorflow as tf
 
