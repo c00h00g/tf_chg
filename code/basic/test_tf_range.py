@@ -18,8 +18,21 @@ b = tf.range(0, 10, delta = 2)
 c = a * seq_len
 print c
 
+#[[ 0]
+# [10]
+# [20]
+# [30]
+# [40]
+# [50]
+# [60]
+# [70]
+# [80]
+# [90]]
+d = tf.reshape(a * seq_len, [-1, 1])
+
 with tf.Session() as sess:
     print sess.run(a)
     print sess.run(b)
 
     print sess.run(c)
+    print sess.run(d)
