@@ -16,3 +16,10 @@ for (i, value) in enumerate(a, 1):
 #5 4
 for (i, value) in enumerate(a, 2):
     print i, value
+
+#5 1
+#6 2
+#7 3
+#8 4
+for (i, value) in enumerate(a, 5):
+    print i, value
