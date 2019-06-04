@@ -43,9 +43,7 @@ b = tf.Variable(tf.zeros([3]))
 
 learning_rate = 0.01
 
-epochs = 30000
-
-init = tf.global_variables_initializer()
+epochs = 100000
 
 pred = tf.nn.softmax(tf.matmul(x, w) + b)
 
@@ -53,6 +51,10 @@ loss = tf.reduce_sum(tf.nn.softmax_cross_entropy_with_logits(logits = pred, labe
 
 #optimizer = tf.train.GradientDescentOptimizer(learning_rate).minimize(loss)
 optimizer = tf.train.AdamOptimizer(learning_rate).minimize(loss)
+
+# Attention
+# since AdamOptimizer has it's own variables, you should define the initilizer init after opt, not before
+init = tf.global_variables_initializer()
 
 
 with tf.Session() as sess:
