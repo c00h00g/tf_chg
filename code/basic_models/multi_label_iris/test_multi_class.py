@@ -17,6 +17,9 @@ def make_one_hot(input, max_depth = 3):
     return res
 
 def load_f_data(path):
+    """
+    将数据转换成numpy格式
+    """
     f_list = []
     label_list = []
 
