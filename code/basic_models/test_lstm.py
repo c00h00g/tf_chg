@@ -13,6 +13,7 @@ from tensorflow.examples.tutorials.mnist import input_data
 mnist = input_data.read_data_sets('../data', one_hot = True)
 
 
+# 表示每一个单元的输出为128 * 1的向量
 n_units = 128
 n_classes = 10
 batch_size = 100
