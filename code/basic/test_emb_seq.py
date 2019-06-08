@@ -14,7 +14,7 @@ output_1 = tf.contrib.layers.embed_sequence(a, 2, 5)
 output_2 = tf.contrib.layers.embed_sequence(a, 10, 5)
 
 
-# must be initialize
+# 一定要先初始化
 init = tf.global_variables_initializer()
 
 with tf.Session() as sess:
