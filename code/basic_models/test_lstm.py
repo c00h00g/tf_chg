@@ -30,6 +30,12 @@ re_x = tf.reshape(x, [-1, n_steps, n_steps])
 lstm_cell = tf.nn.rnn_cell.LSTMCell(n_units)
 initial_state = lstm_cell.zero_state(batch_size, dtype = tf.float32)
 
+# outputs包含了所有状态的输出h_t
+# outputs : Tensor("rnn/transpose_1:0", shape=(100, 28, 128), dtype=float32)
+#
+#
+# state是个tuple, 表示lstm的输出一个是C_t & 一个是h_t
+# state : LSTMStateTuple(c=<tf.Tensor 'rnn/while/Exit_3:0' shape=(100, 128) dtype=float32>, h=<tf.Tensor 'rnn/while/Exit_4:0' shape=(100, 128) dtype=float32>)
 outputs, state = tf.nn.dynamic_rnn(lstm_cell, re_x, initial_state=initial_state, dtype = tf.float32)
 
 weights = tf.Variable(tf.random_normal([n_units, n_classes]))
