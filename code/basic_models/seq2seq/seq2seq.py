@@ -1,6 +1,9 @@
 # -*- coding:utf-8 -*-
 
 import sys
+import os
+
+os.environ["CUDA_VISIBLE_DEVICES"] = "3"
 
 import tensorflow as tf
 from tensorflow.python.layers.core import Dense
@@ -96,10 +99,12 @@ def decoding_layer(target_letter_to_int,
         predicting_helper = tf.contrib.seq2seq.GreedyEmbeddingHelper(decoder_embeddings,
                 start_tokens,
                 target_letter_to_int['<EOS>'])
+
         predicting_decoder = tf.contrib.seq2seq.BasicDecoder(cell,
                 predicting_helper,
                 encoder_state,
                 output_layer)
+
         predicting_decoder_output, _, _ = tf.contrib.seq2seq.dynamic_decode(predicting_decoder,
                 impute_finished=True,
                 maximum_iterations=max_target_sequence_length)
@@ -156,11 +161,11 @@ def get_batches(targets, sources, batch_size, source_pad_int, target_pad_int):
 
 if __name__ == '__main__':
     #calc source_int
-    input_data = InputData('./input_data.head')
+    input_data = InputData('./input_data.train')
     src_list, to_list = input_data.get_input_data()
 
-    source_int_to_letter, source_letter_to_int = input_data.extract_character_vocab(src_list)
-    target_int_to_letter, target_letter_to_int = input_data.extract_character_vocab(to_list)
+    source_int_to_letter, source_letter_to_int = input_data.extract_character_vocab(src_list, 'src_dict')
+    target_int_to_letter, target_letter_to_int = input_data.extract_character_vocab(to_list, 'des_dict')
 
     source_int = input_data.trans_to_id(src_list, source_letter_to_int)
     target_int = input_data.trans_to_id(to_list, target_letter_to_int, is_target = True)
@@ -211,7 +216,7 @@ if __name__ == '__main__':
                                                                                                                 source_letter_to_int['<PAD>'],
                                                                                                                 target_letter_to_int['<PAD>']))
     display_step = 50 
-    checkpoint = "trained_model.ckpt" 
+    checkpoint = "./model/trained_model.ckpt" 
     with tf.Session(graph=train_graph) as sess:
         sess.run(tf.global_variables_initializer())
 
@@ -245,9 +250,9 @@ if __name__ == '__main__':
                                 len(train_source) // batch_size, 
                                 loss, 
                                 validation_loss[0]))
-    saver = tf.train.Saver()
-    saver.save(sess, checkpoint)
-    print('Model Trained and Saved')
+        saver = tf.train.Saver()
+        saver.save(sess, checkpoint)
+        print('Model Trained and Saved')
 
 
 
