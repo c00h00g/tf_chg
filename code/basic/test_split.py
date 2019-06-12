@@ -15,7 +15,7 @@ print(a.shape)
 #参数: 
 # tf.split(value, num_or_size_splits, axis)
 # value : tensor
-# num_or_size_splits : 维度大小
+# num_or_size_splits : 维度大小, 准备切成几份
 # axis : 哪个轴划分
 
 b_list = []
@@ -34,9 +34,10 @@ for b_elem in b:
 #[[ 1  2  3]
 # [ 7  8  9]
 # [13 14 15]]
-# [[ 4  5  6]
-#  [10 11 12]
-#  [16 17 18]]
+#
+#[[ 4  5  6]
+# [10 11 12]
+# [16 17 18]]
 with tf.Session() as sess:
     for elem in b_list:
         print(sess.run(elem))
