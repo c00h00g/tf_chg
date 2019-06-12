@@ -1,3 +1,5 @@
+# -*- coding:utf-8 -*-
+
 import tensorflow as tf
 
 #用法：从张量形状中移除大小为1的维度

@@ -15,6 +15,7 @@ tile(
 
 import tensorflow as tf
 
+# 1 * 2 * 3
 a = tf.constant([[[1, 2, 3], [4, 5, 6]]], dtype = tf.int32)
 
 #不进行复制
@@ -24,7 +25,7 @@ b = tf.tile(a, [1, 1, 1])
 #  [4 5 6]]
 #
 #  [[1 2 3]
-#  [4 5 6]]]
+#   [4 5 6]]]
 c = tf.tile(a, [2, 1, 1])
 
 #[[[1 2 3]

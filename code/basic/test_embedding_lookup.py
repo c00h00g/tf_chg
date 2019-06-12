@@ -22,6 +22,3 @@ b = tf.nn.embedding_lookup(a, [[1, 2, 3], [1, 2, 3]])
 
 with tf.Session() as sess:
     print(sess.run([a, b]))
-
-
-
