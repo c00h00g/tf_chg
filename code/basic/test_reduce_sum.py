@@ -1,3 +1,9 @@
+# -*- coding:utf-8 -*-
+
+"""
+这个函数会导致纬度减少
+"""
+
 import tensorflow as tf
 import numpy as np
 
