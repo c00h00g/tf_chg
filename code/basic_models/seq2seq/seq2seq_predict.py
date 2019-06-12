@@ -69,8 +69,8 @@ source_int_to_letter, source_letter_to_int = load_dict('src_dict')
 target_int_to_letter, target_letter_to_int = load_dict('des_dict')
 
 # predict demo
-#ori_list = read_ori_data('input_data.test')
-ori_list = read_ori_data('input_data.t1')
+ori_list = read_ori_data('input_data.test')
+#ori_list = read_ori_data('input_data.t1')
 input_ids = []
 for elem in ori_list:
     input_ids.append(source_to_seq(elem, source_letter_to_int))
@@ -79,7 +79,7 @@ for elem in ori_list:
 #input_words = 'adafad'
 #input_ids = source_to_seq(input_words, source_letter_to_int)
 
-checkpoint = "./model/trained_model.ckpt"
+checkpoint = "./model/epoch_6/trained_model.ckpt"
 
 loaded_graph = tf.Graph()
 with tf.Session(graph = loaded_graph) as sess:
@@ -90,21 +90,21 @@ with tf.Session(graph = loaded_graph) as sess:
     logits = loaded_graph.get_tensor_by_name('predictions:0')
     source_sequence_length = loaded_graph.get_tensor_by_name('source_sequence_length:0')
     target_sequence_length = loaded_graph.get_tensor_by_name('target_sequence_length:0')
-    answer_logits = sess.run(logits, {input_data: [input_ids[0]] * batch_size, 
-                                      target_sequence_length: [len(input_ids[0]) - 1] * batch_size, 
-                                      source_sequence_length: [len(input_ids[0]) - 1] * batch_size})[0] 
 
-pad = source_letter_to_int["<PAD>"] 
+    for i in range(len(input_ids)):
+        answer_logits = sess.run(logits, {input_data: [input_ids[i]] * batch_size, 
+                                      target_sequence_length: [len(input_ids[i]) + 10] * batch_size, 
+                                      source_sequence_length: [len(input_ids[i]) - 1] * batch_size})[0] 
 
-print('original input is :', ori_list[0])
+        pad = source_letter_to_int["<PAD>"] 
+        print('original input is :', ori_list[i])
+        print('source is ----->')
+        print('original input ids:', input_ids[i])
+        print('original text is : ', ''.join([source_int_to_letter[x] for x in input_ids[i]]))
+        print('target is --->')
+        print('target ids is : ', [x for x in answer_logits if x != pad])
+        print('target text is : ', ''.join([target_int_to_letter[x] if x != 0 else ""  for x in answer_logits if x != pad]))
 
-print('source is ----->')
-print('original input ids:', input_ids[0])
-print('original text is : ', ''.join([source_int_to_letter[x] for x in input_ids[0]]))
-
-
-print('target is --->')
-print('target ids is : ', [i for i in answer_logits if i != pad])
-print('target text is : ', [target_int_to_letter[i] for i in answer_logits if i != pad])
+        print('==================>')
 
 
