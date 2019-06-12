@@ -18,11 +18,13 @@ print(a.shape)
 # num_or_size_splits : 维度大小, 准备切成几份
 # axis : 哪个轴划分
 
+b_list_before = []
 b_list = []
 b = tf.split(a, 2, 1)
 for b_elem in b:
     #Tensor("split:0", shape=(3, 1, 3), dtype=int32)
     print("old_b_elem:", b_elem)
+    b_list_before.append(b_elem)
 
     #Tensor("Squeeze:0", shape=(3, 3), dtype=int32)
     b_elem = tf.squeeze(b_elem)
@@ -31,13 +33,25 @@ for b_elem in b:
     b_list.append(b_elem)
 
 
-#[[ 1  2  3]
-# [ 7  8  9]
-# [13 14 15]]
-#
-#[[ 4  5  6]
-# [10 11 12]
-# [16 17 18]]
 with tf.Session() as sess:
+    #[[ 1  2  3]
+    # [ 7  8  9]
+    # [13 14 15]]
+    #
+    #[[ 4  5  6]
+    # [10 11 12]
+    # [16 17 18]]
     for elem in b_list:
+        print(sess.run(elem))
+
+    print('---------------->')
+
+    #[[[ 1  2  3]]
+    # [[ 7  8  9]]
+    # [[13 14 15]]]
+    #
+    #[[[ 4  5  6]]
+    # [[10 11 12]]
+    # [[16 17 18]]]
+    for elem in b_list_before:
         print(sess.run(elem))
