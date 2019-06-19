@@ -48,10 +48,21 @@ def get_batch_data(data_list, start_idx, batch_size):
 
     return next_start, np.array(res_list)
 
+def dump_embdding(emb):
+    row, col = emb.shape
+    f = open('emb_res', 'w')
+    for i in range(row):
+        one_row = []
+        for j in range(col):
+            one_row.append(str(emb[i][j]))
+        write_line = ' '.join(one_row) + '\n'
+        f.write(write_line)
+    f.close()
+
 ################### load data #####################
 all_data = load_data()
 
-epochs = 10
+epochs = 20
 batch_size = 100
 emb_size = 100
 vocab_size = 19188
@@ -119,6 +130,10 @@ with tf.Session() as sess:
 
             if num % 100 == 0:
                 print('loss is : ', loss_value)
+    # output
+    emb_res = u_emb.eval()
+    dump_embdding(emb_res)
+    print('dump data finish!')
 
 
 
