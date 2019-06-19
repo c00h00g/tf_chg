@@ -86,8 +86,9 @@ print(pos_v)
 print(neg_v)
 
 #two kinds of embedding
-u_emb = tf.Variable(tf.random_normal([vocab_size, emb_size]))
-v_emb = tf.Variable(tf.random_normal([vocab_size, emb_size]))
+initrange = 0.5 / emb_size
+u_emb = tf.Variable(tf.random_uniform([vocab_size, emb_size], minval = -initrange, maxval = initrange))
+v_emb = tf.Variable(tf.random_uniform([vocab_size, emb_size], minval = -0, maxval = 0))
 
 # trans to emb
 pos_u_emb = tf.reshape(tf.matmul(pos_u, u_emb), [-1, 1, 100])
