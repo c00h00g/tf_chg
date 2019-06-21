@@ -1,7 +1,7 @@
 # -*- coding:utf-8 -*-
 
 """
-Ñ¡ÔñËæ»úÊı
+é€‰æ‹©éšæœºæ•°
 numpy.random.choice(a, size=None, replace=True, p=None)
 a : If an ndarray, a random sample is generated from its elements. If an int, the random sample is generated as if a were np.arange(a)
 size : Output shape. If the given shape is, e.g., (m, n, k), then m * n * k samples are drawn. Default is None, in which case a single value is returned.
@@ -13,11 +13,11 @@ import numpy as np
 a = [2, 4, 6, 8 ,10, 12, 14, 16]
 
 # [ 2 14  2 16 10]
-# ¿ÉÒÔÓĞÖØ¸´
+# å¯ä»¥æœ‰é‡å¤
 b = np.random.choice(a, 5)
 
 #[14 12  4  2 16]
-# ²»¿ÉÒÔÓĞÖØ¸´
+# ä¸å¯ä»¥æœ‰é‡å¤
 c = np.random.choice(a, 5, replace = False)
 
 print(b)
