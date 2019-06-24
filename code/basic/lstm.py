@@ -20,6 +20,3 @@ output, h1 = lstm_cell.__call__(inputs, h0)
 print(h1.h)
 print(h1.c)
 print(output)
-
-
-
