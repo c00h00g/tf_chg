@@ -15,6 +15,7 @@ print(t)
 #Tensor("Slice:0", shape=(1, 2, 3), dtype=int32)
 s_res1 = tf.slice(t, [1, 0, 0], [1, 2, 3])
 s_res2 = tf.slice(t, [1, 0, 0], [2, 2, 2])
+s_res3 = tf.slice(t, [1, 0, 0], [1, 2, -1])
 
 with tf.Session() as sess:
     #shape: (1, 2, 3)
@@ -30,3 +31,14 @@ with tf.Session() as sess:
     #  [6 6]]]
     print(s_res2.shape)
     print(sess.run(s_res2))
+
+    #[[[3 3 3]
+    #  [4 4 4]]]
+    print(sess.run(s_res3))
+
+    # False
+    print(s_res1 == s_res3)
+
+    #[[[ True  True  True]
+    #  [ True  True  True]]]
+    print(sess.run(tf.equal(s_res1, s_res3)))
