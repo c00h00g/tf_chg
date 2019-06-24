@@ -8,6 +8,7 @@ print(a.shape)
 
 # (2, 2, 1, 3)
 # 相当于扩充一个维度
+# 和expand_dims功能类似
 b = a[:, :, None, :]
 print(b.shape)
 
