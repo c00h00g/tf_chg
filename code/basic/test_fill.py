@@ -1,7 +1,7 @@
 # -*- coding:utf-8 -*-
 """
-1. µ±valueÎª0Ê±£¬µÈÍ¬ÓÚtf.zeros
-2. µ±valueÎª1Ê±£¬µÈÍ¬ÓÚtf.ones
+1. å½“valueä¸º0æ—¶ï¼Œç­‰åŒäºtf.zeros
+2. å½“valueä¸º1æ—¶ï¼Œç­‰åŒäºtf.ones
 """
 
 import os
