@@ -15,21 +15,21 @@ def test_get_variable(sess):
 
     print sess.run(a)
 
-#scope/chg:0
-#scope/chg:0
-#equal
 def use_variable_scope(sess):
     """
     scope相当于命名空间的意思
     """
     with tf.variable_scope("scope"):
         a = tf.get_variable(name = 'chg', shape = [2, 3], initializer = tf.ones_initializer())
+        #scope/chg:0
         print a.name
 
     with tf.variable_scope("scope", reuse = True):
         b = tf.get_variable(name = 'chg')
+        #scope/chg:0
         print b.name
 
+    #equal
     print "equal" if a == b else "not_equal"
 
 with tf.Session() as sess:
