@@ -10,6 +10,7 @@ import numpy as np
 a = np.array([[1, 2, 3], [4, 5, 6]])  
 
 with tf.Session() as sess:
+    # 表示只有一个维度, -1表示如果一维的话，可以推断出来有多少个数
     #[1 2 3 4 5 6] 一维数组
     print(sess.run(tf.reshape(a, [-1])))
 
