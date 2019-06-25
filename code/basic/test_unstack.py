@@ -2,6 +2,8 @@
 
 """
 按照某个纬度拆分成数组
+0 : 横着
+1 : 竖着
 """
 
 import tensorflow as tf
