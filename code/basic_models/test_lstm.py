@@ -42,6 +42,7 @@ weights = tf.Variable(tf.random_normal([n_units, n_classes]))
 b = tf.Variable(tf.random_normal([n_classes]))
 
 # (, n_units)
+# 最后一个
 last_output = outputs[:, -1, :]
 
 logits = tf.matmul(last_output, weights) + b
