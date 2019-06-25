@@ -16,7 +16,7 @@ y__ = tf.constant([2, 2, 2], dtype = tf.int32)
 # [[0.09003057 0.24472848 0.66524094]
 #  [0.09003057 0.24472848 0.66524094]
 #  [0.09003057 0.24472848 0.66524094]]
-# ≤ª”√º”∏∫∫≈
+# ‰∏çÁî®Âä†Ë¥üÂè∑
 cross_value1 = tf.reduce_sum(tf.nn.softmax_cross_entropy_with_logits(logits = logits, labels = y_))
 cross_value2 = tf.reduce_sum(tf.nn.sparse_softmax_cross_entropy_with_logits(logits = logits, labels = y__))
 
