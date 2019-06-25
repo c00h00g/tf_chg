@@ -1,5 +1,5 @@
 # -*- coding:utf-8 -*-
-# tf.nn.log_soft的用法主要是在计算交叉熵的时候，-y * log(f(x)) - (1 - y) * log(1 - f(x))
+# tf.nn.log_softmax的用法主要是在计算交叉熵的时候，-y * log(f(x)) - (1 - y) * log(1 - f(x))
 
 import tensorflow as tf
 import numpy as np
