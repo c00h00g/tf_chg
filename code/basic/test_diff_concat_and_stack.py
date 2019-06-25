@@ -22,11 +22,11 @@ print(stack_0.shape)
 stack_1 = tf.stack([a, b], 1)
 print(stack_1.shape)
 
-# (4, 3)
+# (4, 3) == (2*2, 3)
 concat_0 = tf.concat([a, b], 0)
 print(concat_0.shape)
 
-# (2, 6)
+# (2, 6) == (2, 3 * 2)
 concat_1 = tf.concat([a, b], 1)
 print(concat_1.shape)
 
@@ -45,9 +45,9 @@ with tf.Session() as sess:
     print(sess.run(stack_0))
 
     #[[[ 1  2  3]
-    # [10 20 30]]
+    #  [10 20 30]]
     # [[ 4  5  6]
-    # [40 50 60]]]
+    #  [40 50 60]]]
     print(sess.run(stack_1))
 
     #[[ 1  2  3]
@@ -57,8 +57,6 @@ with tf.Session() as sess:
     print(sess.run(concat_0))
 
     #[[ 1  2  3 10 20 30]
-    #[ 4  5  6 40 50 60]]
+    # [ 4  5  6 40 50 60]]
     print(sess.run(concat_1))
-
-
 

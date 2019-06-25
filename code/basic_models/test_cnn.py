@@ -13,7 +13,7 @@ x = tf.reshape(x_input, [-1, 28, 28, 1])
 y = tf.placeholder(tf.float32, [None, 10])
 
 batch_size = 128 * 2
-learning_rate = 0.001
+learning_rate = 0.0001
 epochs = 100
 
 # if padding == 'same', use 0 to padding
