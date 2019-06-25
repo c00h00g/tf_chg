@@ -1,7 +1,7 @@
 # -*- coding:utf-8 -*-
 
 """
-°´ÕÕÄ³¸öÎ³¶È²ğ·Ö³ÉÊı×é
+æŒ‰ç…§æŸä¸ªçº¬åº¦æ‹†åˆ†æˆæ•°ç»„
 """
 
 import tensorflow as tf
@@ -11,13 +11,13 @@ os.environ["CUDA_VISIBLE_DEVICES"] = "3"
 # 2 * 3 
 a = tf.constant([[1, 2, 3], [4, 5, 6]])
 
-# °´ÕÕµÚÒ»¸öÎ³¶È²ğ·Ö
+# æŒ‰ç…§ç¬¬ä¸€ä¸ªçº¬åº¦æ‹†åˆ†
 b = tf.unstack(a, axis = 0)
 
 c = b[0]
 d = b[1]
 
-# °´ÕÕµÚ¶ş¸öÎ³¶È²ğ·Ö
+# æŒ‰ç…§ç¬¬äºŒä¸ªçº¬åº¦æ‹†åˆ†
 e = tf.unstack(a, axis = 1)
 
 with tf.Session() as sess:
