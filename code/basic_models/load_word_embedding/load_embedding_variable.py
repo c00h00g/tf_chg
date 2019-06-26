@@ -42,3 +42,5 @@ with tf.Session() as sess:
     # [ 0.8650782  -1.0621126   0.01807257 -0.7221659  -1.6468552 ]
     # [-0.31872445  1.8378029  -0.91336685 -0.4353269  -0.7694902 ]]
     print(sess.run(w))
+    # <class 'tensorflow.python.ops.variables.RefVariable'>
+    print(type(w))
