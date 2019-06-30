@@ -1,7 +1,7 @@
 #!/bin/bash
 source ~/.bashrc
 
-#注意，等号之间不能有空格，shell语法
+#娉ㄦ剰锛岀瓑鍙蜂箣闂翠笉鑳芥湁绌烘牸锛宻hell璇硶
 
 CUDA_VISIBLE_DEVICES=3 python_chg BERT_NER.py --do_train=true \
                                   --data_dir=./NERdata \
