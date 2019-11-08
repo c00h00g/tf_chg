@@ -1,4 +1,7 @@
 # -*- coding:utf-8 -*-
+"""
+是否使用sparse的区别是y是one_hot表示的
+"""
 
 import tensorflow as tf
 import os
