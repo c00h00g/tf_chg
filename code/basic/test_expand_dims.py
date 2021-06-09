@@ -26,6 +26,3 @@ with tf.Session() as sess:
     # [2]
     # [3]]
     print(sess.run(c1))
-
-
-
