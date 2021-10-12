@@ -5,7 +5,7 @@ def calc_tanh(x):
     return (math.exp(x) - math.exp(-x)) / (math.exp(x) + math.exp(-x))
 
 #0.761594155956
-print calc_tanh(1)
+print(calc_tanh(1))
     
 
 a = tf.constant([1, 1, 1], dtype = tf.float32)

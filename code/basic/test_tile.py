@@ -11,6 +11,8 @@ tile(
     name=None)
 
 注意：复制的纬度必须和输入一致
+
+技巧: 把对应维度乘以tile的维度得到新的维度
 """
 
 import tensorflow as tf
