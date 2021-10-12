@@ -8,3 +8,8 @@ with tf.Session() as sess:
     print(sess.run(a))
     print(sess.run(b))
     print(sess.run(c))
+
+# output
+#[0. 1. 0. 0.]
+#[0. 0. 1. 0.]
+#[0. 1. 1. 0.]
