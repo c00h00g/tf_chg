@@ -24,6 +24,6 @@ for elem in zip_ab:
 for elem in zip_ac:
     print(elem)
 
-# 元素首位相连
+# 元素首尾相连
 # [(1, 2), (2, 3), (3, 4)]
 print zip(a[:-1], a[1:])
