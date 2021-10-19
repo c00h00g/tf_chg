@@ -1,3 +1,7 @@
+# -*- coding:utf-8 -*-
+
+# 按照给定的index提取数据，并重新拼接
+
 import tensorflow as tf
 import os
 import numpy as np
