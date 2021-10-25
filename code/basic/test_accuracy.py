@@ -7,6 +7,7 @@ x = tf.placeholder(tf.int32, shape=[None, 3])
 y = tf.placeholder(tf.int32, shape=[None, 3])
 mask = tf.placeholder(tf.int32, shape=[None, 3])
 
+# 可以对不需要计算的字段进行mask来计算最终的准确率
 acc, acc_op = tf.metrics.accuracy(labels=x, predictions=y, weights=mask)
 
 
