@@ -32,6 +32,11 @@ def test_1(sess):
     print(sess.run(c))
 
 def test_2(sess):
+    """
+    x_batch的axes=1对应2
+    y_batch的axes=2对应2
+    这两个索引对应的值要是相等的
+    """
     x_batch = tf.convert_to_tensor(np.random.randint(0, 3, size=(2, 2, 1)))
     y_batch = tf.convert_to_tensor(np.random.randint(0, 3, size=(2, 3, 2)))
     xy_batch_dot = tf.keras.backend.batch_dot(x_batch, y_batch, axes=(1, 2))
@@ -74,6 +79,7 @@ chg test_2 result is ---------------------------->
  [[0 2]
   [0 2]
   [2 1]]]
+
 [[[0 0 5]]
 
  [[0 0 0]]]
