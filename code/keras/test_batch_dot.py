@@ -11,6 +11,9 @@ a_t = tf.convert_to_tensor(a)
 b = np.random.randint(0, 3, size=(3, 2))
 b_t = tf.convert_to_tensor(b)
 
+# a_t : (3, 2)
+# b_t : (3, 2)
+# output: 3 * 1
 c = tf.keras.backend.batch_dot(a_t, b_t, axes=1)
 
 
