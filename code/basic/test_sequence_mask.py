@@ -20,6 +20,7 @@ with tf.Session() as sess:
     # 第二个2表示mask前两个
     # 第三个3表示mask前三个
     # 第四个4表示mask全部
+    # 第二个参数表示总长度
     print(sess.run(seq_mask))
 
     # 全部mask
