@@ -17,3 +17,7 @@ loss2 = tf.nn.softmax_cross_entropy_with_logits(logits=logits, labels=labels)
 with tf.Session() as sess:
     print(sess.run(loss1))
     print(sess.run(loss2))
+
+# outputs
+#1.4076059
+#1.4076059
