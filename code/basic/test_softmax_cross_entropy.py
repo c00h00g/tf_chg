@@ -15,6 +15,7 @@ os.environ["CUDA_VISIBLE_DEVICES"] = "3"
 logits = tf.constant([[1, 2, 3], [1, 2, 3], [1, 2, 3]], dtype = tf.float32)
 # (3, 3)
 print(logits.shape)
+
 y = tf.nn.softmax(logits)
 y_ = tf.constant([[0, 0, 1],[0, 0, 1],[0, 0, 1]], dtype = tf.float32)  
 y__ = tf.constant([2, 2, 2], dtype = tf.int32)
@@ -30,6 +31,7 @@ cross_value2 = tf.reduce_sum(tf.nn.sparse_softmax_cross_entropy_with_logits(logi
 
 sess = tf.compat.v1.Session()
 print(sess.run(y))
+#print(sess.run(tf.nn.softmax_cross_entropy_with_logits(logits = logits, labels = y_)))
 
 #1.2228179
 #1.2228179
