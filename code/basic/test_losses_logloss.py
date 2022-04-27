@@ -21,7 +21,7 @@ a_t = tf.convert_to_tensor(a, dtype=tf.float32)
 labels = np.random.randint(0, 2, size=(2, 1))
 labels_t = tf.convert_to_tensor(labels, dtype=tf.float32)
 
-weights = np.random.randint(0, 2, size=(2, 1))
+weights = np.random.randint(0, 3, size=(2, 1))
 weights = tf.convert_to_tensor(weights, dtype=tf.float32)
 
 sum_x = 0
